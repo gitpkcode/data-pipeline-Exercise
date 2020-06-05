@@ -1,3 +1,4 @@
+# Load data from S3 to Redshift
 import datetime
 import logging
 
