@@ -1,5 +1,5 @@
-#1 - DAG to load data month by month, instead of loading it all at once, every time. 
-#2 -  time partitioning to parallelize the execution of the DAG.
+#DAG to load data month by month, instead of loading it all at once, every time. 
+#Time partitioning to parallelize the execution of the DAG.
 
 import datetime
 import logging
