@@ -1,6 +1,7 @@
 from airflow import DAG
 from airflow.contrib.sensors.file_sensor import FileSensor
 from airflow.operators.python_operator import PythonOperator
+from airflow.operators.bash_operator import BashOperator
 from datetime import datetime
 import logging
 
@@ -30,4 +31,10 @@ cleaning_tweets_task = PythonOperator(
         task_id = "cleaning_tweets",
         python_callable = cleaning_tweets.main,
         dag = dag
+        )
+
+stroing_tweets_task = BashOperator(
+        task_id="storing_tweets",
+        bash_command="hadoop fs -put -f /tmp/data_cleaned.csv /tmp/",
+        dag=dag
         )
